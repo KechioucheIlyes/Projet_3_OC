@@ -19,13 +19,16 @@ fetch (url)
 .then(response => response.json())
 .then(datas => {
     const project_container = document.querySelector("#project_container")
+    const dynamique_project_modal = document.querySelector(".dynamique_project_modal")
     if (datas.length ==0) {
         suppression_galerie.style.display = "none"
     }
-
+    let cardCount = 0;
     
-
+    console.log(datas[0])
+    
     for (let data of datas){
+        
         //main dashbord dynamic works
         const card = document.createElement("div")
         card.style.border ="1px solid black"
@@ -41,32 +44,34 @@ fetch (url)
         card.appendChild(title)
         project_container.appendChild(card)
 
-
-
+        const element = document.querySelector('p:nth-child(2)');
         // Modal dynamic works
 
+        console.log(data.id)
+        
+        element.style.color = 'red';
+        
             
 
-    const dynamique_project_modal = document.querySelector(".dynamique_project_modal")
+    
     // je recupere tout les data dans le localStorage pour ne pas abusé de l'api
     
+     localStorage.setItem("allProject" , JSON.stringify(datas))
     
-
-    localStorage.setItem("allProject" , JSON.stringify(datas))
-
-    
+     
+     cardCount++;
     const modal_card = document.createElement('div')
     modal_card.classList.add("container_card")
 
     const img_modal = document.createElement("img")
     img_modal.crossOrigin="anonymous"
     img_modal.src = data.imageUrl
-
+    
     const img_move = document.createElement("img")
     img_move.src = "./assets/icons/corbeille.png"
     img_move.classList.add("move_class")
 
-
+    
     const text_edit_img = document.createElement("p")
     text_edit_img.innerText="éditer"
     
@@ -75,7 +80,16 @@ fetch (url)
     modal_card.appendChild(text_edit_img)
     dynamique_project_modal.appendChild(modal_card) 
     
-    
+    if (cardCount === 1) {
+
+
+        
+        const img_remove = document.createElement("img")
+        img_remove.src="./assets/icons/Move.png"
+        img_remove.classList.add("move_class2")
+        modal_card.appendChild(img_remove)
+
+      }
 
     img_move.addEventListener("click" , (e)=>{
         const token = localStorage.getItem("myToken")
@@ -84,6 +98,7 @@ fetch (url)
         e.preventDefault()
 
         let ids = data.id 
+        
         
         
 
@@ -109,8 +124,12 @@ fetch (url)
     }
 
     
+    
 
 })
+
+const loc = JSON.parse( localStorage.getItem("allProject"))
+
 
 const modif = document.querySelector(".modif_project")
 const myModal = document.querySelector(".modal")

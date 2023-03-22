@@ -616,6 +616,18 @@ h4{
 
 
 }
+
+
+.move_class2{
+    position: absolute;
+    z-index: 1;
+    height: 15px !important;
+    right: 25px;
+    top: 5px;
+    cursor: pointer;
+
+
+}
 .rab_class{
     position: relative;
     height: 15px !important;
