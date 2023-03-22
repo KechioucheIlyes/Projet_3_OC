@@ -44,12 +44,12 @@ fetch (url)
         card.appendChild(title)
         project_container.appendChild(card)
 
-        const element = document.querySelector('p:nth-child(2)');
+
         // Modal dynamic works
 
         console.log(data.id)
         
-        element.style.color = 'red';
+        
         
             
 
@@ -315,8 +315,6 @@ window.addEventListener("click", (e)=>{
 })
 
 
-
-   
 
 
 
