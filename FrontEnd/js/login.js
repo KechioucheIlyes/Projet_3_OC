@@ -21,7 +21,7 @@ connexion.classList.add("hide")
 btn.addEventListener("click", ()=>{
     spinner.classList.remove("hide")
     denied_container.classList.add("hide")
-
+    btn.classList.add("hide")
     const data = {
         email: mail.value ,
         password: mdp.value  
