@@ -141,7 +141,7 @@ if(token){
 
   
   
-  const modif = document.querySelector(".modif_project")
+const modif = document.querySelector(".modif_project")
 const myModal = document.querySelector(".modal")
 const btn_close = document.querySelector(".close")
 const suppression_galerie = document.querySelector(".supprimer_tout")
@@ -408,8 +408,16 @@ modif.addEventListener("click", (e)=>{
                 }
             
                 fetch(url ,options )
-                .then(res => res.json())
-                .then(data => console.log(data))
+                .then(res => {
+                    
+                    if (res.ok){
+                        document.location.reload()
+                    }
+                    else{
+                        throw new Error("Erreur")
+                    }
+                })
+                
                 .catch(error => console.error(error))
                 
             })
