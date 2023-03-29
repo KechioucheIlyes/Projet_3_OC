@@ -320,14 +320,7 @@ modif.addEventListener("click", (e)=>{
 
             const prev = document.querySelector(".prev")
             const files_input = document.querySelector("#files_input")
-            prev.addEventListener("click" , ()=>{
-                modal_2.style.display="none"
-                myModal.style.display = "block"
-                title.value =""
-                img_select_category.value = ""
-                img_prev.value = ""
-
-            })
+            
 
             img_select_category.addEventListener("change", ()=>{
                 console.log(img_select_category.value)
@@ -344,7 +337,7 @@ modif.addEventListener("click", (e)=>{
         
             ajouter_photo.addEventListener("click", (e)=>{
             
-            
+            e.stopPropagation()
             const img_prev = document.querySelector(".empty_pic")
             
             files_input.click()
@@ -372,7 +365,20 @@ modif.addEventListener("click", (e)=>{
                 updateButtonState();
             });
             
-            
+            prev.addEventListener("click" , ()=>{
+                modal_2.style.display="none"
+                myModal.style.display = "block"
+                title.value =""
+                img_select_category.value = ""
+                files_input.value = null; 
+                URL.revokeObjectURL(img_prev.src); 
+                img_prev.src = "./assets/icons/Group.svg";
+                ajouter_photo.style.display = "block";
+                Mo_max.style.display = "block"
+                senReqBody.disabled = true;
+                senReqBody.classList.add("senReqBody")
+
+            })
             
         });
 
@@ -393,7 +399,6 @@ modif.addEventListener("click", (e)=>{
 
 
             senReqBody.addEventListener("click", (e)=>{
-
                 
                 e.preventDefault()
                 const formData= new FormData(forms)
@@ -408,15 +413,60 @@ modif.addEventListener("click", (e)=>{
                 }
             
                 fetch(url ,options )
-                .then(res => {
+                .then(res => res.json())
+                .then(data => {console.log(data)
                     
-                    if (res.ok){
-                        document.location.reload()
-                    }
-                    else{
-                        throw new Error("Erreur")
-                    }
-                })
+                    const project_container = document.querySelector("#project_container")
+                    
+                    const card = document.createElement("div")
+                    card.style.border ="1px solid black"
+                    const img = document.createElement("img")
+                    const title = document.createElement("p")
+                    img.crossOrigin="anonymous"
+                    img.src = data.imageUrl
+                    img.style.height = "413px"
+                    img.style.margin = "7px"
+                    title.innerText = data.title
+                    
+                    card.appendChild(img)
+                    card.appendChild(title)
+                    project_container.appendChild(card)
+                
+                    const dynamique_project_modal = document.querySelector(".dynamique_project_modal")
+                    
+       
+                    const modal_card = document.createElement('div')
+                    modal_card.classList.add("container_card")
+
+                    const img_modal = document.createElement("img")
+                    img_modal.crossOrigin="anonymous"
+                    img_modal.src = data.imageUrl
+                    
+                    const img_move = document.createElement("img")
+                    img_move.src = "./assets/icons/corbeille.png"
+                    img_move.classList.add("move_class")
+
+                    
+                    const text_edit_img = document.createElement("p")
+                    text_edit_img.innerText="éditer"
+                    
+                    modal_card.appendChild(img_modal)
+                    modal_card.appendChild(img_move)
+                    modal_card.appendChild(text_edit_img)
+                    dynamique_project_modal.appendChild(modal_card) 
+                    
+                    
+
+                    
+
+
+
+
+
+                }
+                
+                )
+                
                 
                 .catch(error => console.error(error))
                 
@@ -430,6 +480,7 @@ modif.addEventListener("click", (e)=>{
 
     })
 
+    
     
 
 btn_close.addEventListener("click", ()=>{
@@ -464,3 +515,6 @@ function logout(){
 
 }
 
+function add(){
+
+}
