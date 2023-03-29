@@ -3,6 +3,99 @@
    License: none (public domain)
 */
 
+.edits{
+	display:none;
+    border: 1px solid black;
+    background-color: black;
+    height: 59px;
+    width: 1439px;
+    position: relative;
+    right: 150px;
+	
+}
+.edition{
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    height: 59px;
+    align-items: center;
+}
+
+.img_edit{
+    height: 15.7px;
+    margin: 5px;
+    cursor: pointer;
+    
+}
+
+.publication{
+    border: 1px solid white;
+    color: black;
+    background-color: white;
+    border-radius: 60px;
+    padding: 11px 23px 11px 23px;
+    font-weight: bold;
+    margin: 10px;
+    cursor: pointer;
+}
+.containerProject{
+	display: flex;
+
+	justify-content: center;
+}
+
+.edit_project{
+	display: flex;
+
+	margin-top: 5px;
+	align-items: start;
+}
+
+.edit_project .modif_project{
+	margin-top: 6px;
+	cursor: pointer;
+}
+
+
+
+.container_edit_text{
+	display: none;
+	
+	width: 100px;
+	height: 20px;
+	
+}
+.container_edit{
+	display: none;
+}
+
+
+#edit_first_pic{
+	
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    width: 200px;
+    position: relative;
+    bottom:30px;
+    left: 50px;
+}
+
+#edit_first_pic   .img_edite {
+    height: 15.7px;
+    margin: 10px;
+    cursor: pointer;
+    width: 17px;
+}
+
+
+.modif_projects{
+    cursor: pointer;
+}
+
+.logout{
+	cursor: pointer;
+}
 .loader {
 		width: 48px;
 		height: 48px;
@@ -330,7 +423,17 @@ h3:hover{
 	flex-direction: column;
 	justify-content: center;
 }
-
+.senReqBody {
+    background-color: #888;
+    color: aliceblue;
+    padding: 10px 38px 9px 39px;
+    border-radius: 60px;
+    border-color: transparent;
+    font-family: "Syne";
+    cursor: pointer;
+    width: 250px;
+	
+}
 button{
 	background-color: #1D6154;
 	color: aliceblue;
@@ -339,6 +442,8 @@ button{
 	border-color: transparent;
 	font-family: "Syne";
 	cursor: pointer;
+	width: 250px;
+	margin: auto;
 }
 label{
 	font-family: "Work Sans";
@@ -367,3 +472,251 @@ label{
 	flex-wrap: wrap;
 }
 
+
+#project_container{
+    display: flex;
+    width: 1000px;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.modal , .modal-2{
+    display: none;
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.8);
+
+}
+button .add_pic {
+    background-color: #888;
+    color: aliceblue;
+    padding: 10px 38px 9px 39px;
+    border-radius: 60px;
+    border-color: transparent;
+    font-family: "Syne";
+    cursor: pointer;
+}
+
+.modal-content {
+
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 37%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+
+}
+
+.closed_span{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
+    
+}
+
+.close , .close_2{
+
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    
+
+}
+
+.dynamique_project_modal{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: auto;
+    padding: 30px;
+    height: 55%;
+    overflow: scroll
+
+}
+
+
+.btn_modal {
+    padding-top: 20px ;
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
+}
+
+#Supression {
+    color:  #D65353;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 23px;
+}
+
+.close_2:hover{
+    color: #1D6154;
+}
+
+.prev{
+    color: #aaaaaa;
+    font-size: 20px;
+}
+.prev:hover{
+    color: #1D6154;
+    cursor: pointer;
+}
+
+.content_gallery-2{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.content_gallery-2 .barre_lateral {
+    margin-top: 25px;
+}
+
+.content_gallery-2 button{
+    margin-top: 35px;
+}
+
+.container_add_picture{
+    height: 169px;
+    width: 100%;
+    margin: auto;
+    margin-top: 36px;
+    background-color: rgba(232, 241, 246, 1);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.container_add_picture .empty_pic{
+    height: 100%;
+    margin-top: 30px;
+
+    margin: auto;
+
+}
+
+.container_add_picture input{
+    width: 200px;
+    margin: auto;
+    background-color: #CBD6DC;
+    cursor: pointer;
+    
+
+}
+
+.container_add_picture p{
+    font-size: 12px;
+    margin: auto;
+}
+
+
+.add_pic{
+    background-color: rgba(167, 167, 167, 1);
+    width: 200px;
+    margin-top: 20px;
+    margin: auto;
+
+}
+
+.title_container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+
+}
+.titre_input{
+    height: 51px;
+    width: 100%;
+}
+
+.categorie_containers{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 102%;
+    margin: auto;
+    margin-top: 20px;
+
+}
+
+#projets{
+    height:51px;
+    width: 100%;
+    margin: auto;
+
+}
+
+
+
+.barre_lateral{
+    border-bottom: 1px solid rgba(179, 179, 179, 1);
+    width: 100%;
+    margin: auto;
+    padding-top: 25px;
+
+}
+.dynamique_project_modal img{
+    margin: 10px;
+    height: 100px;
+}
+.dynamique_project_modal p {
+    margin: auto;
+    display: flex;
+    justify-content: flex-start;
+    width: 71px;
+    position: relative;
+    bottom: 10px;
+	cursor: pointer;
+    margin-top: 2px;
+
+}
+
+.move_class{
+    position: absolute;
+    z-index: 1;
+    height: 15px !important;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+}
+
+.move_class2{
+    position: absolute;
+    z-index: 1;
+    height: 15px !important;
+    right: 25px;
+    top: 5px;
+    cursor: pointer;
+
+}
+
+.container_card{
+    position: relative;
+}
+
+
+
+h4{
+    font-family: "Work Sans";
+    font-size: 26px;
+    text-align: center;
+}

@@ -7,11 +7,21 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
-	<script src="./js/script.js"></script>
+	
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 	
 </head>
+   
+<div class="edits">
+	<div class="edition">
+
+		<img class="img_edit" src="./assets/icons/white_modif.png">
+		<p> <span class="modif">Mode édition</span> </p>
+		<div class="publication"> <p>publier les changements</p> </div>
+
+	</div>
+</div>
 <body>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
@@ -19,7 +29,7 @@
 		<ul>
 			<li> <a href="#">projets</a></li>
 			<li> <a href="#">contact</a> </li>
-			<li><a href="login.html">login</a></li>
+			<li><a id="log" href="login.html">login</a></li>
 			<li><img class="insta" src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -28,7 +38,12 @@
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="">
-			
+			<div class="container_edit_text">
+				<section id="edit_first_pic">
+					<img class="img_edite" src="./assets/icons/Group.png">
+					<div class="modif_projects">Modifier</div> 
+				</section>
+		</div>
 		</figure>
 		<article>
 			<h2>Designer d'espace</h2>
@@ -38,7 +53,15 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<div class="containerProject">
+			<h2>Mes Projets</h2>
+			<div class="container_edit">
+				<div class="edit_project">
+					<img class="img_edit" src="./assets/icons/Group.png">
+					<div class="modif_project">Modifier</div> 
+				</div>
+			</div>
+		</div>
 		<div class="projects">
 			
 			
@@ -51,6 +74,101 @@
 		<div  class="container_filter">
 			
 		</div>
+
+		
+
+		<section id="project_container">
+				
+		</section>
+
+		<div id="myModal" class="modal">
+
+			<div class="modal-content">
+				<div class="closed_span">
+					<span class="close">&times;</span>
+				</div>
+	
+				<div class="content_gallery">
+					<div class="title_modal">
+						<h4>Galerie photo</h4>
+					</div>
+	
+	
+					<div class="dynamique_project_modal">
+	
+	
+					</div>
+					<div class="barre_lateral">
+	
+					</div>
+					<div class="btn_modal">
+						<button id="modal_btn">Ajouter une photo</button>
+	
+					</div>
+					<div id="Supression" class = "supprimer_tout"><h5>Supprimer la galerie</h5></div>
+				</div>
+				
+			</div>
+	
+		</div>
+
+
+
+		<div id="myModalBtnAdd" class="modal-2">
+
+			<div class="modal-content">
+				<div class="closed_span">
+					<span class="close_2">&times;</span>
+					<div class="prev"><i class="fa-solid fa-arrow-left"></i></div>
+				</div>
+				
+					<div class="title_modal-2">
+						<h4>Ajout photo</h4>
+					</div>
+					<form   method="POST" class="content_gallery-2" enctype="multipart/form-data">
+						<div class="container_add_picture">
+							<img  class ="empty_pic"  src="./assets/icons/Group.svg" alt="Photo">
+							<button type="button" class="add_pic">+ Ajouter photo</button>
+							<input type="file" id="files_input" name="image" hidden>
+							<p class="Mo_max">jpg, png : 4mo max</p>
+						</div>
+						<div class="title_add">
+							<div class="title_container">
+	
+								<label for="title">Titre</label>
+								
+									<input name="title" type="text" class="titre_input">
+								</div>
+							</div>
+	
+							<div class="categorie_containers">
+								
+								<label for="categories">Catégorie</label>
+								<select name="category" id="projets">
+	
+									<option value="">Sélectionnez une catégorie</option>
+									<option value="1">Objets</option>
+									<option value="2">Appartements</option>
+									<option value="3">Hotels & restaurants</option>
+	
+								</select>
+							</div>
+						
+						<button type="submit" id="senReqBody" class ="senReqBody" disabled>Envoyer</button>
+								
+					</form>
+						<div class="barre_lateral">
+	
+						</div>
+	
+			</div>
+	
+		</div>
+	
+
+
+
+	
 	</section>
 	<section id="contact">
 		<h2>Contact</h2>
@@ -74,5 +192,8 @@
 		</ul>
 	</nav>
 </footer>
+<script src="https://kit.fontawesome.com/55721499d6.js" crossorigin="anonymous"></script>
+
+<script src="./js/script.js"></script>
 </body>
 </html>

@@ -45,7 +45,7 @@ btn.addEventListener("click", ()=>{
                 
             if (data.token){
                 localStorage.setItem('myToken', data.token);
-                document.location.href="homepage_edit.html";
+                document.location.href="index.html";
                 spinner.classList.remove("hide")
                 denied_container.classList.add("hide")
                 console.log(data)
